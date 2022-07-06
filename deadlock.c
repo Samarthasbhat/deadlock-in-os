@@ -5,9 +5,10 @@
 int up=0,down=0;
 int f=1;
 int cc=600,nn=100,ni=800,da=10,ss=200;
-int m=700,n=200;
-int s=200,v=800;
+int m=700,n=220;
+int s=300,v=800;
 int spotdisp=1;
+
 
 
 void renderBitmapString(float x,float y,const char *string)
@@ -50,12 +51,7 @@ void SpecialKey(int key,int x,int y){
 
 	void yellow()
 	{
-	//glColor3f(0.29,1,0.47);
-	//glBegin(GL_POLYGON);
-	//glVertex2f(20,90);
-	//glVertex2f(60,150);
-	//glVertex2f(80,90);
-	//glEnd();
+	
 	
 	glColor3f(1,1,1);//white shirt
 	glBegin(GL_POLYGON);
@@ -158,16 +154,113 @@ void SpecialKey(int key,int x,int y){
 	//glVertex2f(30,245);
 	glEnd();
 	}
+	void red(){
 	
-	void mister()
-	{
-	glColor3f(0.55,0.30,1);
+	
+	
+	glColor3f(1,1,1);//white shirt
 	glBegin(GL_POLYGON);
 	glVertex2f(20,90);
+	glVertex2f(40,100);
+	glVertex2f(40,150);
 	glVertex2f(60,150);
+	glVertex2f(60,100);
 	glVertex2f(80,90);
 	glEnd();
+
+
+	glColor3f(1,0,0);//coat left
+	glBegin(GL_POLYGON);
+	glVertex2f(20,90);
+	glVertex2f(40,100);
+	glVertex2f(40,150);
+	glVertex2f(20,143);
+	glEnd();
+
+	glBegin(GL_POLYGON);//left sleve
+	glVertex2f(10,100);
+	glVertex2f(20,100);
+	glVertex2f(20,143);
+	glVertex2f(10,140);
+	glEnd();
+
+	glColor3f(0.92, 0.75, 0.53);
+	glBegin(GL_POLYGON);//left hand
+	glVertex2f(10,100);
+	glVertex2f(20,100);
+	glVertex2f(20,90);
+	glVertex2f(10,90);
+	glEnd();
+
+	glColor3f(1,0,0);
+	glBegin(GL_POLYGON);//right sleve
+	glVertex2f(90,100);
+	glVertex2f(80,100);
+	glVertex2f(80,143);
+	glVertex2f(90,140);
+	glEnd();
+
+	glColor3f(0.92, 0.75, 0.53);// right hand
+	glBegin(GL_POLYGON);
+	glVertex2f(90,100);
+	glVertex2f(80,100);
+	glVertex2f(80,90);
+	glVertex2f(90,90);
+	glEnd();
+
+	
+
+	glColor3f(0,0,0);//belt
+	glBegin(GL_POLYGON);
+	glVertex2f(20,80);
+	glVertex2f(20,90);
+	glVertex2f(80,90);
+	glVertex2f(80,80);
+	glEnd();
+
+	
+
+	glColor3f(0,0,0);//pant
+	glBegin(GL_POLYGON);
+	glVertex2f(20,0);
+	glVertex2f(20,80);
+	glVertex2f(50,80);
+	glVertex2f(40,0);
+	glEnd();
+
+	glColor3f(0,0,0);//pant
+	glBegin(GL_POLYGON);
+	glVertex2f(80,0);
+	glVertex2f(80,80);
+	glVertex2f(50,80);
+	glVertex2f(60,0);
+	glEnd();
+
+
+
+	glColor3f(0.92, 0.75, 0.53);//face
+	glBegin(GL_POLYGON);
+	glVertex2f(30,160);
+	glVertex2f(40,150);
+	glVertex2f(60,150);
+	glVertex2f(70,160);
+
+	glVertex2f(70,200);
+	glVertex2f(30,200);
+
+	glEnd();
+
+	glColor3f(0.41, 0.24, 0.13);//hair
+	glBegin(GL_POLYGON);
+	glVertex2f(30,200);
+	glVertex2f(70,200);
+	glVertex2f(70,230);
+	glVertex2f(30,230);
+	//glVertex2f(30,245);
+	glEnd();
+	
 	}
+
 void create_menu(int choice){
         switch(choice){
             case 1:
@@ -212,7 +305,7 @@ void keyboard( unsigned char key, int x, int y )
 }
 
 void delay(){
-int i=100000000;
+int i=3900010;
 while(i--);
 }
 
@@ -220,24 +313,71 @@ while(i--);
 void scene2(){
 	
 	
-	glColor3f(0,0,0);
-	glBegin(GL_POLYGON);
-	glColor3f(0,0.5,0.5);
-	glVertex2i(0,800);
-	glVertex2i(0,900);
-	glEnd();
 	
+	glColor3f(0,1,0);
 	glBegin(GL_POLYGON);
 	glVertex2i(0,0);
 	glVertex2i(700,0);
 	glVertex2i(800,0);
-	glVertex2i(300,800);
+	glVertex2i(320,800);
 	glVertex2i(0,800);
-	
-	
 	glEnd();
 	
-
+	glColor3f(0.1,0,0.1);
+	renderBitmapString(200,150,"Press B return to home page");
+	renderBitmapString(200,250,"Press I to Introduction");
+	renderBitmapString(200,350,"Press D to simulation");
+	renderBitmapString(200,450,"Press E to EXIT");
+	renderBitmapString(200,550,"Press H to HELP KEY");
+	//steps******************************
+	
+	 glColor3f(0.5, 1,0.5);
+   	 glLineWidth(3);
+   	 glBegin(GL_POLYGON);
+   	 glVertex2i(700, 160);
+   	 glVertex2i(650, 250);
+   	 glVertex2i(695, 245);
+    	 glEnd();
+    	 
+    	 glColor3f(.5, 1,0.5);
+   	 glLineWidth(5);
+   	 glBegin(GL_POLYGON);
+   	  glVertex2i(640, 260);
+   	 glVertex2i(590, 350);
+   	 glVertex2i(635, 345);
+    	 glEnd();
+	
+	glColor3f(.5, 1,0.5);
+   	 glLineWidth(5);
+   	 glBegin(GL_POLYGON);
+   	  glVertex2i(580, 360);
+   	 glVertex2i(530, 450);
+   	 glVertex2i(575, 445);
+    	 glEnd();
+	 
+	 glColor3f(.5, 1,0.5);
+   	 glLineWidth(5);
+   	 glBegin(GL_POLYGON);
+   	  glVertex2i(520, 460);
+   	 glVertex2i(470, 550);
+   	 glVertex2i(515, 545);
+    	 glEnd();
+    	 
+    	  glColor3f(.5, 1,0.5);
+   	 glLineWidth(5);
+   	 glBegin(GL_POLYGON);
+   	  glVertex2i(460, 560);
+   	 glVertex2i(410, 650);
+   	 glVertex2i(455, 645);
+    	 glEnd();
+    	 
+    	 glColor3f(.5, 1,0.5);
+   	 glLineWidth(5);
+   	 glBegin(GL_POLYGON);
+   	  glVertex2i(400, 660);
+   	 glVertex2i(350, 750);
+   	 glVertex2i(395, 745);
+    	 glEnd();
 }
 	
 void next()
@@ -252,17 +392,26 @@ void next()
 	glColor3f(1,1,1);
 	scene2();
 	
+		if(v>500 && n>450){
+	
+	glColor3f(1,0,0);
+	renderBitmapString(900,900,"Intruption");
+	
+	delay();
+	glColor3f(0,0,1);
+	renderBitmapString(900,800,"Deadlock occured");
+	}
 	glPushMatrix();
 	
 	glTranslatef(s,v,0);
 	
-	if(up==1 && s<490)
+	if(up==1 && s<500)
 	{
 	
 	delay();
-	ss=ss+100;
-	s++;
 	
+	s=s+1;
+	ss=ss+200;
 	if(v>50)
 	v=v-.8;
 	yellow();
@@ -277,22 +426,17 @@ void next()
 	
 	if(up==1 && n<480)
 	{
-	n++;
+	
+	n=n+1;
 	if(m>350)
 	m--;
-	mister();
+	red();
 	glPopMatrix();
 	
 	}
 	
-	if(v>500 && n>450){
-	glColor3f(1,0,0);
-	renderBitmapString(900,900,"Intrupption");
-	delay();
+
 	
-	glColor3f(1,0,0);
-	renderBitmapString(900,900,"Deadlock occured");
-	}
 	glFlush();
 	
 }
@@ -357,7 +501,7 @@ void mydisplay(){
 	glVertex2i(1000,75);
 	glVertex2i(0,75);
 	glEnd();
-	glColor3f(1,0.5,0);
+	glColor3f(1,0,1);
     	
 	
 	renderBitmapString(850,100,"Press up arrow");
@@ -366,11 +510,11 @@ void mydisplay(){
 	
 	//************************************************************************************/
 	glPushMatrix();
-	glTranslatef(cc+300,nn,0);
+	glTranslatef(cc+350,nn,0);
 	if(cc>400)
 	cc--;	
 	glScalef(1,1,0);
-	mister();
+	red();
 	glPopMatrix();
 
 	glPushMatrix();
@@ -385,11 +529,10 @@ void mydisplay(){
 
 	if(up==1)
 	next();
-	
 	glFlush();
 	}
    	 
-   	 	if(f==3)
+   	 if(f==3)
 	{
 	
 	glColor3f(1,1,0);
@@ -399,6 +542,8 @@ void mydisplay(){
 	renderBitmapString(300,650,"Press E to EXIT");
 	renderBitmapString(300,750,"Press H to HELP KEY");
 	}
+   	 
+   	 
    	 
    	 
    	 if(f==5)
@@ -436,6 +581,9 @@ void mydisplay(){
     	}
     	
 
+
+
+
 int main(int argc,char**argv)
 {
 	glutInit(&argc,argv);
@@ -452,7 +600,6 @@ int main(int argc,char**argv)
 	glutAddMenuEntry("HELP KEY",3);
 	glutAddMenuEntry("DEADLOCK",2);
 	glutAddMenuEntry("EXIT",5);
-
 	glutAttachMenu(GLUT_RIGHT_BUTTON);
 	glutDisplayFunc(mydisplay);
 	glutSpecialFunc(SpecialKey);

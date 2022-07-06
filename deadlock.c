@@ -620,7 +620,21 @@ void mydisplay(){
     	glVertex2f(1000,0);
     	glEnd();
     	
+    	flowrect(460,900);
+    	
     	flowrect(460,800);
+    	flowrect(460,700);
+    	flowrect(460,600);
+    	flowrect(250,600);
+    	flowrect(660,600);
+    	flowrect(460,500);
+    	flowrect(460,400);
+    	glColor3f(1,0,0);
+    	renderBitmapString(475,870,"START");
+    	renderBitmapString(475,770,"INTRO");
+    	renderBitmapString(475,670,"ABOUT");
+    	renderBitmapString(465,570,"EXAMPLE");
+    	renderBitmapString(265,570,"HELP");
    	 }
    	 
    	 

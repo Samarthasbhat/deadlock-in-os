@@ -26,12 +26,32 @@ void BitmapString(float x,float y,const char *string)
 	glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10,*c) ;
 
 }
+
+void renderBitmapString18(float x,float y,const char *string)
+{
+	glRasterPos2f(x,y);   	
+	glLineWidth(5.0);
+	for (int i=0;string[i]!='\0';i++)
+		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,string[i]) ;
+		//GLUT_BITMAP_9_BY_15
+
+}
 void myinit()
 {
     	glClearColor(0,0,0,1.0);
      	glMatrixMode(GL_PROJECTION);
     	gluOrtho2D(0,1000,0,1000);
     	glMatrixMode(GL_MODELVIEW);
+}
+
+void flowrect(float x,float y){
+		glBegin(GL_QUADS);
+    	glColor3f(1,1,0);
+   	 glVertex2f(x,y);
+   	 glVertex2f(x+70,y);
+   	 glVertex2f(x+70,y-40);
+   	 glVertex2f(x,y-40);
+   	 glEnd();
 }
 void SpecialKey(int key,int x,int y){
 	switch(key){
@@ -277,6 +297,9 @@ void create_menu(int choice){
                 break;
 	    case 5:
 		f=6;
+		break;
+		case 6:
+		f=4;
 	
         }
        
@@ -300,6 +323,9 @@ void keyboard( unsigned char key, int x, int y )
 	}
 	if(key=='h'||key=='H'){
 	f=3;
+	}
+	if(key=='f'||key=='F'){
+	f=4;
 	}
 
 }
@@ -378,6 +404,8 @@ void scene2(){
    	 glVertex2i(350, 750);
    	 glVertex2i(395, 745);
     	 glEnd();
+    	 
+    	
 }
 	
 void next()
@@ -456,30 +484,58 @@ void mydisplay(){
     	glEnd();
     	glMatrixMode(GL_MODELVIEW);
     	glLoadIdentity();
-    	    	if(f==1){
-
-    	glColor3f(1,1,1);
-    	renderBitmapString(380,850,"SDM INSTITUTE OF TECHNOLOGY");
+    	glEnd();
+    	glMatrixMode(GL_MODELVIEW);
+    	glLoadIdentity();
+    	if(f==1){
+			
+		glColor3f(1,1,1);
+		glLineWidth(6);
+		glPushMatrix(); 
+		char str[]="SDM Institute Of Technology, Ujire";
+		glColor3f(1.0,1.0,0.0);
+		glTranslatef(220,930.0,0.0);
+		glScaled(0.16,0.32,0.0);
+		for(int i=0;str[i]!='\0';i++)
+		glutStrokeCharacter(GLUT_STROKE_MONO_ROMAN,str[i]);
+		glPopMatrix();
+		
+		
+		glLineWidth(2.5);
+		glPushMatrix(); 
+		char strc[]="Computer Science and Engineering ";
+		glColor3f(0.9,0.8,0.34);
+		glTranslatef(350,870.0,0.0);
+		glScaled(0.095,0.23,0.0);
+		for(int i=0;str[i]!='\0';i++)
+		glutStrokeCharacter(GLUT_STROKE_MONO_ROMAN,strc[i]);
+		glPopMatrix();
+		
+		
+    	//renderBitmapString(420,870,"Computer Science and Engineering");
+    	
+    	
+    	glColor3f(254/255,255/255,165/255);
+    	renderBitmapString(400,810,"Computer Graphics Lab With Mini Project");
+    	
+    	glColor3f(0.96,0.596,.258);
+    	renderBitmapString(430,600,"* * DEADLOCK IN OS * *");
+    	
     	glColor3f(1,1,0);
-    	renderBitmapString(120,690,"***TEAM MEMBERS***");
+    	renderBitmapString(120,650,"TEAM MEMBERS :-");
     	glColor3f(1,1,1);
-    	renderBitmapString(120,600,"KUMAR SAMARTHA");
-    	renderBitmapString(120,570,"4SU19CS043");
+    	renderBitmapString18(120,600,"KUMAR SAMARTHA (4SU19CS043)");
     	glColor3f(1,1,1);
-    	renderBitmapString(120,520,"LAXMI MAGADUM");
-    	renderBitmapString(120,490,"4SU19CS045");
+    	renderBitmapString18(120,550,"LAXMI MAGADUM (4SU19CS045)");
     	glColor3f(1,1,1);
-    	renderBitmapString(120,440,"MALLIKA L");
-    	renderBitmapString(120,410,"4SU19CS051");
+    	renderBitmapString18(120,500,"MALLIKA L (4SU19CS051)");
     	glColor3f(1,1,1);
-    	renderBitmapString(120,370,"MANOJ GAONKAR");
-    	renderBitmapString(120,340,"4SU19CS052");
+    	renderBitmapString18(120,450,"MANOJ GAONKAR (4SU19CS052)");
     	glColor3f(1,1,0);
-    	renderBitmapString(750,690,"***GUIDE***");
+    	renderBitmapString(750,650,"GUIDE :-");
     	glColor3f(1,1,1);
-    	renderBitmapString(750,600,"Mr. PRADEEP RAO K B");
+    	renderBitmapString18(750,600,"Mr. PRADEEP RAO K B");
     	glColor3f(1,1,1);
-    	renderBitmapString(380,250,"DEADLOCK IN REPRESENTATION");
     	BitmapString(700,50,"RIGHT CLICK ANYWHERE TO CONTINUE");
     	glutPostRedisplay();
    	 }
@@ -534,36 +590,70 @@ void mydisplay(){
    	 
    	 if(f==3)
 	{
-	
-	glColor3f(1,1,0);
-	renderBitmapString(300,350,"Press B return to home page");
-	renderBitmapString(300,450,"Press I to Introduction");
-	renderBitmapString(300,550,"Press D to simulation");
-	renderBitmapString(300,650,"Press E to EXIT");
-	renderBitmapString(300,750,"Press H to HELP KEY");
+		glClear(GL_COLOR_BUFFER_BIT);
+    	glBegin(GL_QUADS);
+    	glColor3f(0.1,0.256,0.71);
+    	glVertex2f(0,0);
+    	glVertex2f(1000,0);
+    	glColor3f(0.8,0.23,0.7);
+    	glVertex2f(1000,1000);
+    	glVertex2f(0,1000);
+    	glEnd();
+	glColor3f(0,1,0);
+	renderBitmapString(200,900,"KEYS :-");
+	glColor3f(1,1,1);
+	renderBitmapString(300,550,"Press B return to home page");
+	renderBitmapString(300,600,"Press I for Introduction");
+	renderBitmapString(300,650,"Press D for simulation");
+	renderBitmapString(300,700,"Press E to EXIT");
+	renderBitmapString(300,750,"Press F for FLOW CHART ");
+	renderBitmapString(300,800,"Press H for HELP");
 	}
    	 
-   	 
+   	 if(f==4){
+   	 	glBegin(GL_QUADS);
+    	glColor3f(0,0.015,0.156);
+    	glVertex2f(0,0);
+    	glVertex2f(0,1000);
+    	glColor3f(0,0.305,0.572);
+    	glVertex2f(1000,1000);
+    	glVertex2f(1000,0);
+    	glEnd();
+    	
+    	flowrect(460,800);
+   	 }
    	 
    	 
    	 if(f==5)
 	{
-	
+		glBegin(GL_QUADS);
+    	glColor3f(0.8,0.1,0.01);
+    	glVertex2f(0,0);
+    	glVertex2f(1000,0);
+    	glColor3f(0.3,0,0.7);
+    	glVertex2f(1000,1000);
+    	glVertex2f(0,1000);
+    	glEnd();
 	glColor3f(0,1,1);
-	glBegin(GL_POLYGON);
-	glVertex2i(0,0);
-	glVertex2i(1000,0);
-	glVertex2i(1000,75);
-	glVertex2i(0,75);
-	glEnd();
+	
+	glColor3f(0,1,0);
+	renderBitmapString(50,900,"DEADLOCK");
 	glColor3f(1,1,1);
-	renderBitmapString(100,700,"DEADLOCK");
-	renderBitmapString(100,600,"A deadlock is a situation in which two computer programs sharing the same resources.");
-	renderBitmapString(300,500,"MUTUAL EXCLUSION");
-	renderBitmapString(300,450,"HOLD AND WAIT");
-	renderBitmapString(300,400,"NO PREEMPTION");
-	renderBitmapString(300,350,"CIRCULAR WAIT");
+	renderBitmapString(50,800,"A deadlock is a situation in which two computer programs sharing the same resources.");
+	
+	renderBitmapString(50,750,"MUTUAL EXCLUSION: Two or more resources are non-shareable (Only one process can use at a time)");
+	renderBitmapString(50,700,"HOLD AND WAIT: A process is holding at least one resource and waiting for resources. ");
+	renderBitmapString(50,650,"NO PREEMPTION: A resource cannot be taken from a process unless the process releases the resource. ");
+	renderBitmapString(50,600,"1) Deadlock prevention or avoidance: The idea is to not let the system into a deadlock state.");
+	renderBitmapString(50,550,"One can zoom into each category individually, Prevention is done by negating one of above mentioned necessary conditions for deadlock.");
+	renderBitmapString(50,500,"2) Deadlock detection and recovery: Let deadlock occur, then do preemption to handle it once occurred.");
+	renderBitmapString(50,450,"3) Ignore the problem altogether: If deadlock is very rare, then let it happen and reboot the system. This is the approach that both Windows and UNIX take.");
+	renderBitmapString(50,350,"A process in operating system uses resources in the following way.");
+	renderBitmapString(50,300,"1) Requests a resource ");
+	renderBitmapString(50,250,"2) Use the resource ");
+	renderBitmapString(50,200,"3) Releases the resource ");
 	}
+	
    	 if(f==6)
 	{
 	glColor3f(1,1,1);
@@ -597,6 +687,7 @@ int main(int argc,char**argv)
 	glutCreateMenu(create_menu);
 	glutAddMenuEntry("INTRODUCTION",1);
 	glutAddMenuEntry("ABOUT",4);
+	glutAddMenuEntry("FLOW CHART",6);
 	glutAddMenuEntry("HELP KEY",3);
 	glutAddMenuEntry("DEADLOCK",2);
 	glutAddMenuEntry("EXIT",5);

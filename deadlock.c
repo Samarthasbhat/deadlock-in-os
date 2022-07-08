@@ -594,8 +594,8 @@ void mydisplay(){
     	renderBitmapString(750,650,"GUIDE :-");
     	glColor3f(1,1,1);
     	renderBitmapString18(750,600,"Mr. PRADEEP RAO K B");
-    	glColor3f(1,1,1);
-    	BitmapString(700,50,"RIGHT CLICK ANYWHERE TO CONTINUE");
+    	glColor3f(1,0,0);
+    	renderBitmapString18(700,50,"RIGHT CLICK ANYWHERE TO CONTINUE");
     	glutPostRedisplay();
    	 }
    	 if(f==2)

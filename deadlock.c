@@ -1,5 +1,4 @@
-
-#include<GL/glut.h>
+ #include<GL/glut.h>
 #include<math.h>
 #include<stdio.h>
 
@@ -726,9 +725,16 @@ void mydisplay(){
     	arrow(460,180,2); //exit left side
     	arrow(530,180,1); //exit right side
     	
+    	glColor3f(0.2,0.9,0);
+    	renderBitmapString(100,900,"FLOW CHART");
     	
-  
-    	
+    	//Instructions
+    	glColor3f(1,1,1);
+    	renderBitmapString(500,725,"I");
+  	renderBitmapString(500,625,"D");
+    	renderBitmapString(500,525,"UP ARROW");
+    	renderBitmapString(370,590,"H");
+    	renderBitmapString(650,590,"E");
 	}
    	 
    	 
@@ -810,20 +816,6 @@ int main(int argc,char**argv)
 	glutMainLoop();
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
